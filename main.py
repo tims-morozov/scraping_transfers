@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import time
+import data_base
 
 # Data input
 all_inputs = input("Enter the data: ").split('|') # Athens|Acropolis|2025 May 12 - 12:00|3
@@ -84,9 +85,14 @@ for passenger in get_max_passengers:
     if passenger.text[0] == 'U':
         max_passengers.append(passenger.text)
 
-# Output info
-for p in range(len_list_info):
-    print(f'{cars[p]} ({max_passengers[p]}): {prices[p]}')
+# Result list for Database
+list_for_db = []
+for x in range(len_list_info):
+    # print(f'{cars[x]} ({max_passengers[x]}): {prices[x]}')
+    list_for_db.append([arrival_airport_enter, going_to_enter, cars[x], max_passengers[x], prices[x]])
+
+for p in list_for_db:
+    print(p)
 
 # Completion
 time.sleep(10)
