@@ -60,7 +60,7 @@ class Transfers_Scraping:
         time.sleep(5)
 
         # Show more button click
-        driver.execute_script("arguments[0].click();", WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="step_form"]/section/div[7]/a'))))
+        driver.execute_script("arguments[0].click();", WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, 'js-more-vehicles__button'))))
         time.sleep(5)
 
         # Get info
